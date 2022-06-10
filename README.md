@@ -21,5 +21,5 @@ Projek akhir / Tugas Akhir dari Mata Kuliah Pemrograman Integratif
  <p> - Setelah direktori sudah berganti, langkah berikutnya gunakan perintah berikut ini untuk melakukan request install laravel:<br>
 	 <code>composer create-project laravel/laravel:^8.0 nama_projectmu</code> <= angka 8 menunjukkan akan menginstall laravel versi 8 </p> 
   <p> - Jika sudah selesai install, kemudian cek apakah folder untuk projek laravel yang barusan dibuat apakah sudah ada (lihat pada direktori penginstalan). </p> 
-<p> - Jika file/folder sudah ada, kemudian pada cmd/terminal kita coba <i>run</i> laravelnya dengan cara tulis <code>php artisan serve</code></p> 
+<p> - Jika file/folder sudah ada, selanjutnya pada terminal/cmd gunakan perintah <code>cd (nama projek yang barusan dibuat)</code> setelah berganti direktorinya, kemudian  kita coba <i>run</i> laravelnya dengan cara tulis <code>php artisan serve</code></p> 
 <p> - Jika muncul tulisan <i>Laravel development server started</i> pada Command Prompt atau Terminal, langkah selanjutnya adalah membuka link yang telah disediakan oleh Laravel. Secara default alamat server,yaitu 127.0.0.1:8000. copy alamat / address tersebut dan buka pada browser favorit anda. <br> Maka instalasi Laravel telah selesai dan siap digunakan..</p><hr>
