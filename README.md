@@ -75,6 +75,6 @@ Projek akhir / Tugas Akhir dari Mata Kuliah Pemrograman Integratif
         }
     }
 </code>
-<p> - selanjutnya pada terminal/cmd tuliskan query <code>php artisan serve</code>, kemudian buka link yang tertera pada cmd dan lihat hasilnya </p>
+<p> - selanjutnya pada terminal/cmd tuliskan query <code>php artisan serve</code>, kemudian buka link yang tertera di cmd pada browser favorit anda dan lihat hasilnya </p>
 <p> - percobaan fetch rss ke database telah selesai</p>
 
