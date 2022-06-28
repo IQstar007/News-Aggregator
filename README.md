@@ -63,7 +63,6 @@ Projek akhir / Tugas Akhir dari Mata Kuliah Pemrograman Integratif
                 'rss_id' => $id_rss
             );
             News::Create($data);
-            // dd($data);
         }
 
         // get from news
