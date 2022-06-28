@@ -40,7 +40,39 @@ Projek akhir / Tugas Akhir dari Mata Kuliah Pemrograman Integratif
 <p> - selanjutnya buka file models pada folder app>Models , dan tambahkan query <code>protected &table = 'rss';</code> dan <code>protected $fillable = ['title','img_url','description','source_url','rss_id'];</code> </p>
 <p> - kemudian kita akan melakukan routing pada file web.php yang terletak di folder routes, tambahkan query <code>Route::get('/aggregrate/{rss_id}', [NewsController::class, 'aggregrate']);</code></p>
 <p> - selanjutnya kita akan mengedit bagian controller news, pertama tambahkan query <code>use App\Models\Rss;</code> & <code>use App\Models\News;</code> , kemudian buat query sebagai berikut : 
-	
+	<code>
+	public function aggregrate($id_rss){
+        // disini kita akan membuat logic untuk get rss data by id_rss
+        $rss = Rss::findOrFail($id_rss);
+        
+        // kita akan parsing xml to object
+        $xml = file_get_contents($rss->url);
+        $xmlObj = simplexml_load_string($xml);
+        // dd($xmlObj->channel);
+
+        // save to table news
+        foreach($xmlObj->channel->item as $xml){
+            $title= $xml->title;
+            $desc= $xml->description;
+            $url= $xml->enclosure['url'];
+            $data= array(
+                'title' => $title,
+                'img_url' => null,
+                'description' => $desc,
+                'source_url' => $url,
+                'rss_id' => $id_rss
+            );
+            News::Create($data);
+            // dd($data);
+        }
+
+        // get from news
+        $news= News::where('rss_id', $id_rss)->get();
+        foreach($news as $n){
+            print_r($n->title ."<br>".$n->description);
+            print_r("<br><br><br><br>");    
+        }
+    }</code>
 </p>
 <p> - selanjutnya pada terminal/cmd tuliskan query <code>php artisan serve</code>, kemudian buka link yang tertera pada cmd dan lihat hasilnya </p>
 <p> - percobaan fetch rss ke database telah selesai</p>
