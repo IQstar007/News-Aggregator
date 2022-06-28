@@ -39,7 +39,7 @@ Projek akhir / Tugas Akhir dari Mata Kuliah Pemrograman Integratif
 <p> - kemudian pada trminal/cmd tulis <code>php artisan make:model News --controller</code>, untuk membuat model dan contoller news</p>
 <p> - selanjutnya buka file models pada folder app>Models , dan tambahkan query <code>protected &table = 'rss';</code> dan <code>protected $fillable = ['title','img_url','description','source_url','rss_id'];</code> </p>
 <p> - kemudian kita akan melakukan routing pada file web.php yang terletak di folder routes, tambahkan query <code>Route::get('/aggregrate/{rss_id}', [NewsController::class, 'aggregrate']);</code></p>
-<p> - selanjutnya kita akan mengedit bagian controller news, pertama tambahkan query <code>use App\Models\Rss;</code> & <code>use App\Models\News;</code> , kemudian buat query sebagai berikut : 
+<p> - selanjutnya kita akan mengedit bagian controller news, pertama tambahkan query <code>use App\Models\Rss;</code> & <code>use App\Models\News;</code> , kemudian buat query sebagai berikut : </p>
 	<code>
 	public function aggregrate($id_rss){
         // disini kita akan membuat logic untuk get rss data by id_rss
@@ -73,7 +73,6 @@ Projek akhir / Tugas Akhir dari Mata Kuliah Pemrograman Integratif
             print_r("<br><br><br><br>");    
         }
     }</code>
-</p>
 <p> - selanjutnya pada terminal/cmd tuliskan query <code>php artisan serve</code>, kemudian buka link yang tertera pada cmd dan lihat hasilnya </p>
 <p> - percobaan fetch rss ke database telah selesai</p>
 
