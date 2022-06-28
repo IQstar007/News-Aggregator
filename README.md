@@ -23,3 +23,23 @@ Projek akhir / Tugas Akhir dari Mata Kuliah Pemrograman Integratif
   <p> - Jika sudah selesai install, kemudian cek apakah folder untuk projek laravel yang barusan dibuat apakah sudah ada (lihat pada direktori penginstalan). </p> 
 <p> - Jika file/folder sudah ada, selanjutnya pada terminal/cmd gunakan perintah <code>cd (nama projek yang barusan dibuat)</code> setelah berganti direktorinya, kemudian  kita coba <i>run</i> laravelnya dengan cara tulis <code>php artisan serve</code></p> 
 <p> - Jika muncul tulisan <i>Starting Laravel development server</i> pada Command Prompt atau Terminal, langkah selanjutnya adalah membuka link yang telah disediakan oleh Laravel. Secara default alamat server,yaitu 127.0.0.1:8000. copy alamat / address tersebut dan buka pada browser favorit anda. <br> Maka instalasi Laravel telah selesai dan siap digunakan..</p><hr>
+<br>
+<h2>Tahap kedua - melakukan fetch RSS ke program kita</h2>
+<p> - pertama buatlah database baru pada mysql (atau database apapun yg anda sukai) </p>
+<p> - kemudian setelah databse telah dibuat, buka file .env pada folder program kita dan edit pada line <code>DB_DATABASE=</code> tambahkan pada line tersebut nama database yang barusan dibuat</p>
+<p> - selanjutnya buka terminal/cmd dan tambahkan query <code>php artisan make:migration create_rss_table</code> dan <code>php artisan make:migration create_rss_table</code> </p>
+<p> - kemudian buka file migration pada folder database dan edit pada file create_rss_table & create_news_table, edit pada bagian setelah <code>Schema::create</code> tambahkan isi tabel sesuai yang diperlukan</p>
+<p> - setelah selesai ditambahkan isi tabel yang diinginkan , kemudian pada terminal/cmd tulis query <code>php artisan migrate </code>, selanjutnya lihat pada database apakah sudah berhasil dibuat tabel dan isinya sesai dengan yang kita inginkan </p>
+<p> - kemudian buat mode,seed & controller dengan tambahkan query pada terminal/cmd <code>php artisan make:model Rss --seed --controller</code></p>
+<p> - selanjutnya edit pada file models pada folder app>Models , dan tambahkan query <code>protected &table = 'rss';</code> maksudnya disini kita akan menggunakan tabel rss </p>
+<p> - kemudian buka file Rssseeder pada folder database>sedders kita tambahkan <code>use App\Models\Rss;</code> pada bagian atas dan tambahkan query <code> Rss::create([
+            'name' => 'New York Times',
+            'url' => "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+        ]);</code> untuk mengisi tabel rss pada database kita</p>
+<p> - selanjutnya pada terminal/cmd tulis <code>php artisan db:seed</code> untuk menjalankan perintah pengisian ke tabel rss pada database, selanjutnya cek apakah pada tabel sudah ada isinya atau belum</p>
+<p> - kemudian pada trminal/cmd tulis <code>php artisan make:model News --controller</code>, untuk membuat model dan contoller news</p>
+<p> - selanjutnya buka file models pada folder app>Models , dan tambahkan query <code>protected &table = 'rss';</code> dan <code>protected $fillable = ['title','img_url','description','source_url','rss_id'];</code> </p>
+<p> - kemudian kita akan melakukan routing pada file web.php yang terletak di folder routes, tambahkan query <code>Route::get('/aggregrate/{rss_id}', [NewsController::class, 'aggregrate']);</code></p>
+<p> - </p>
+<p> - </p>
+
