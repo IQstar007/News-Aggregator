@@ -23,7 +23,6 @@ Projek akhir / Tugas Akhir dari Mata Kuliah Pemrograman Integratif
   <p> - Jika sudah selesai install, kemudian cek apakah folder untuk projek laravel yang barusan dibuat apakah sudah ada (lihat pada direktori penginstalan). </p> 
 <p> - Jika file/folder sudah ada, selanjutnya pada terminal/cmd gunakan perintah <code>cd (nama projek yang barusan dibuat)</code> setelah berganti direktorinya, kemudian  kita coba <i>run</i> laravelnya dengan cara tulis <code>php artisan serve</code></p> 
 <p> - Jika muncul tulisan <i>Starting Laravel development server</i> pada Command Prompt atau Terminal, langkah selanjutnya adalah membuka link yang telah disediakan oleh Laravel. Secara default alamat server,yaitu 127.0.0.1:8000. copy alamat / address tersebut dan buka pada browser favorit anda. <br> Maka instalasi Laravel telah selesai dan siap digunakan..</p><hr>
-<br>
 <h2>Tahap kedua - melakukan fetch RSS ke program kita</h2>
 <p> - pertama buatlah database baru pada mysql (atau database apapun yg anda sukai) </p>
 <p> - kemudian setelah databse telah dibuat, buka file .env pada folder program kita dan edit pada line <code>DB_DATABASE=</code> tambahkan pada line tersebut nama database yang barusan dibuat</p>
@@ -40,6 +39,6 @@ Projek akhir / Tugas Akhir dari Mata Kuliah Pemrograman Integratif
 <p> - kemudian pada trminal/cmd tulis <code>php artisan make:model News --controller</code>, untuk membuat model dan contoller news</p>
 <p> - selanjutnya buka file models pada folder app>Models , dan tambahkan query <code>protected &table = 'rss';</code> dan <code>protected $fillable = ['title','img_url','description','source_url','rss_id'];</code> </p>
 <p> - kemudian kita akan melakukan routing pada file web.php yang terletak di folder routes, tambahkan query <code>Route::get('/aggregrate/{rss_id}', [NewsController::class, 'aggregrate']);</code></p>
-<p> - </p>
+<p> - selanjutnya kita akan mengedit bagian controller news dan buat query seperti berikut <code></code></p>
 <p> - </p>
 
