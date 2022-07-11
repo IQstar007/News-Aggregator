@@ -98,13 +98,13 @@ Stuff.co.nz (News dari New Zealand) : https://www.stuff.co.nz/rss
 
 Korea TImes (News dari Korea) : https://www.koreatimes.co.kr/www/rss/northkorea.xml
 
-1. Membuat file blade.php di recources/views
+- langkah awal kita membuat file blade.php di recources/views, untuk tampilannya bisa kita ambil dari templete web secara gratis yang ada di dunia maya.
 
    ```
    frnace.blade.php
    index.blade.php
    ```
-2. Menambahkan Route di web.php
+- kemudian menambahkan Route di web.php dengan sytax seperti berikut
 
 ```
 Route::get('/France 24', [App\Http\Controllers\RssController::class, 'france']);
@@ -113,7 +113,7 @@ Route::get('/Stuff.co.nz', [App\Http\Controllers\RssController::class, 'newzelan
 Route::get('/Korea Times', [App\Http\Controllers\RssController::class, 'korea']);
 ```
 
-3. Menambahkan beberapa code baru di RssController
+- selanjutnya menambahkan beberapa code baru di RssController
 
    ```
    
@@ -143,12 +143,13 @@ Route::get('/Korea Times', [App\Http\Controllers\RssController::class, 'korea'])
     }
    ```
 
-4. Tampilan dari Rss feed yang ada pada database
+- selanjutnya kita tampilkan hasil rss kita yang sudah kita coding tampilannya dengan memanggil alamat sesuai dengan route yang sudah dibuat, hasil tampilan bisa dilihat pada gambar berikut :
 
-   ![03_9_home_white_infeed](assets/03_9_home_white_infeed.PNG)
-   ![03_10_home_black_infeed](assets/03_10_home_black_infeed.PNG)
-   ![03_11_esport_infeed](assets/03_11_esport_infeed.PNG)
-   ![03_12_korea_infeed](assets/03_12_korea_infeed.PNG)
- ![Alt text of the image](https://github.com/username/repository/blob/master/img/octocat.png)
+   ![03_9_home_white_infeed](gmbr/1.png) 
+   ![03_9_home_white_infeed](gmbr/2.png)
+    ![03_9_home_white_infeed](gmbr/3.png)
+     ![03_9_home_white_infeed](gmbr/4.png)
 
+
+- setelah berhasil menampilkan bentuk xml dari rss kedalam html biasa, kita bisa juga menambahkan berbagai bentuk rss lain dari berbagai portal berita yang meyediakan rss mereka dan kita tampilkan di web yang kita buat dengan mudah, dengan cara ini web kita sudah dapat menampilkan berbagai macam berita dari berbagai macam portal dikumpulkan dalam satu tempat.  untuk tampilan juga bisa kita edit sesuka hati.. 
 ------
