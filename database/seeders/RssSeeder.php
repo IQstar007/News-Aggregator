@@ -15,12 +15,22 @@ class RssSeeder extends Seeder
     public function run()
     {
         Rss::create([
-            'name' => 'The Apology Line',
-            'url' => "https://rss.art19.com/apology-line"
+            'name' => 'France 24',
+            'url' => "https://www.france24.com/en/rss"
         ]);
         Rss::create([
-            'name' => 'New York Times',
-            'url' => "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+            'name' => 'Zeit Online',
+            'url' => "http://newsfeed.zeit.de/index"
         ]);
+        Rss::create([
+            'name' => 'Stuff.co.nz',
+            'url' => "https://www.stuff.co.nz/rss"
+        ]);
+        Rss::create([
+            'name' => 'Korea Times',
+            'url' => "https://www.koreatimes.co.kr/www/rss/northkorea.xml"
+        ]);
+
+        
     }
 }
