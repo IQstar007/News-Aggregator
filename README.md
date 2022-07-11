@@ -10,6 +10,10 @@
 ## News-Aggregator
 Projek akhir / Tugas Akhir dari Mata Kuliah Pemrograman Integratif
 
+**Mohammad Iqbal  1202218021 [ IT 02-01 ]**
+
+------
+
 <h2> Tahap Awal Penginstalan Laravel </h2>
   <p> - Sebelum melakukan instalasi Laravel pada Windows, pastikan sudah menginstall beberapa aplikasi pendukung proses instalasi Laravel, yaitu:<br>
 	*Aplikasi XAMPP (instalasi PHP sudah ter include disini)<br>
@@ -23,6 +27,7 @@ Projek akhir / Tugas Akhir dari Mata Kuliah Pemrograman Integratif
   <p> - Jika sudah selesai install, kemudian cek apakah folder untuk projek laravel yang barusan dibuat apakah sudah ada (lihat pada direktori penginstalan). </p> 
 <p> - Jika file/folder sudah ada, selanjutnya pada terminal/cmd gunakan perintah <code>cd (nama projek yang barusan dibuat)</code> setelah berganti direktorinya, kemudian  kita coba <i>run</i> laravelnya dengan cara tulis <code>php artisan serve</code></p> 
 <p> - Jika muncul tulisan <i>Starting Laravel development server</i> pada Command Prompt atau Terminal, langkah selanjutnya adalah membuka link yang telah disediakan oleh Laravel. Secara default alamat server,yaitu 127.0.0.1:8000. copy alamat / address tersebut dan buka pada browser favorit anda. <br> Maka instalasi Laravel telah selesai dan siap digunakan..</p><hr>
+
 <h2>Tahap kedua - melakukan fetch RSS ke program kita</h2>
 <p> - pertama buatlah database baru pada mysql (atau database apapun yg anda sukai) </p>
 <p> - kemudian setelah databse telah dibuat, buka file .env pada folder program kita dan edit pada line <code>DB_DATABASE=</code> tambahkan pada line tersebut nama database yang barusan dibuat</p>
@@ -79,3 +84,71 @@ public function aggregrate($id_rss)
 
 <p> - selanjutnya pada terminal/cmd tuliskan query <code>php artisan serve</code>, kemudian buka link yang tertera di cmd pada browser favorit anda dan lihat hasilnya </p>
 <p> - percobaan fetch rss ke database telah selesai</p>
+
+------
+## Tahap ketiga - menampilkan hasil fetch rss news
+
+disini kita menggunakan 4 RSS, yaitu :
+
+France 24 (News dari Prancis): https://esportv.org/rss/category/valorant](https://www.france24.com/en/rss
+
+Zeit Online (News dari Jerman) : http://newsfeed.zeit.de/index
+
+Stuff.co.nz (News dari New Zealand) : https://www.stuff.co.nz/rss
+
+Korea TImes (News dari Korea) : https://www.koreatimes.co.kr/www/rss/northkorea.xml
+
+1. Membuat file blade.php di recources/views
+
+   ```
+   frnace.blade.php
+   index.blade.php
+   ```
+2. Menambahkan Route di web.php
+
+```
+Route::get('/France 24', [App\Http\Controllers\RssController::class, 'france']);
+Route::get('/ZEIT ONLINE', [App\Http\Controllers\RssController::class, 'germany']);
+Route::get('/Stuff.co.nz', [App\Http\Controllers\RssController::class, 'newzeland']);
+Route::get('/Korea Times', [App\Http\Controllers\RssController::class, 'korea']);
+```
+
+3. Menambahkan beberapa code baru di RssController
+
+   ```
+   
+    public function france()
+    {
+        $index = DB::table('rss')->get();
+        $index2 = DB::table('news')-> where ('rss_id','1')-> limit (15)->orderBy('id', 'DESC')->get();
+        return view('france', ['index'=>$index,'index2'=>$index2]);
+    }
+    public function germany()
+    {
+        $index = DB::table('rss')->get();
+        $index2 = DB::table('news')-> where ('rss_id','2')-> limit (15)->orderBy('id', 'DESC')->get();
+        return view('france', ['index'=>$index,'index2'=>$index2]);
+    }
+    public function newzeland()
+    {
+        $index = DB::table('rss')->get();
+        $index2 = DB::table('news')-> where ('rss_id','3')-> limit (15)->orderBy('id', 'DESC')->get();
+        return view('france', ['index'=>$index,'index2'=>$index2]);
+    }
+     public function korea()
+    {
+        $index = DB::table('rss')->get();
+        $index2 = DB::table('news')-> where ('rss_id','4')-> limit (15)->orderBy('id', 'DESC')->get();
+        return view('france', ['index'=>$index,'index2'=>$index2]);
+    }
+   ```
+
+4. Tampilan dari Rss feed yang ada pada database
+
+   ![03_9_home_white_infeed](assets/03_9_home_white_infeed.PNG)
+   ![03_10_home_black_infeed](assets/03_10_home_black_infeed.PNG)
+   ![03_11_esport_infeed](assets/03_11_esport_infeed.PNG)
+   ![03_12_korea_infeed](assets/03_12_korea_infeed.PNG)
+ ![Alt text of the image](https://github.com/username/repository/blob/master/img/octocat.png)
+
+------
