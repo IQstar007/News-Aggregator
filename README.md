@@ -14,7 +14,7 @@ Projek akhir / Tugas Akhir dari Mata Kuliah Pemrograman Integratif
 
 ------
 
-<h2> Tahap Awal Penginstalan Laravel </h2>
+<h2> Tahap Awal - Penginstalan Laravel </h2>
   <p> - Sebelum melakukan instalasi Laravel pada Windows, pastikan sudah menginstall beberapa aplikasi pendukung proses instalasi Laravel, yaitu:<br>
 	*Aplikasi XAMPP (instalasi PHP sudah ter include disini)<br>
    *Composer 
@@ -28,7 +28,7 @@ Projek akhir / Tugas Akhir dari Mata Kuliah Pemrograman Integratif
 <p> - Jika file/folder sudah ada, selanjutnya pada terminal/cmd gunakan perintah <code>cd (nama projek yang barusan dibuat)</code> setelah berganti direktorinya, kemudian  kita coba <i>run</i> laravelnya dengan cara tulis <code>php artisan serve</code></p> 
 <p> - Jika muncul tulisan <i>Starting Laravel development server</i> pada Command Prompt atau Terminal, langkah selanjutnya adalah membuka link yang telah disediakan oleh Laravel. Secara default alamat server,yaitu 127.0.0.1:8000. copy alamat / address tersebut dan buka pada browser favorit anda. <br> Maka instalasi Laravel telah selesai dan siap digunakan..</p><hr>
 
-<h2>Tahap kedua - melakukan fetch RSS ke program kita</h2>
+<h2>Tahap kedua - Melakukan fetch RSS ke program kita</h2>
 <p> - pertama buatlah database baru pada mysql (atau database apapun yg anda sukai) </p>
 <p> - kemudian setelah databse telah dibuat, buka file .env pada folder program kita dan edit pada line <code>DB_DATABASE=</code> tambahkan pada line tersebut nama database yang barusan dibuat</p>
 <p> - selanjutnya buka terminal/cmd dan tambahkan query <code>php artisan make:migration create_rss_table</code> dan <code>php artisan make:migration create_rss_table</code> </p>
@@ -86,7 +86,7 @@ public function aggregrate($id_rss)
 <p> - percobaan fetch rss ke database telah selesai</p>
 
 ------
-## Tahap ketiga - menampilkan hasil fetch rss news
+## Tahap ketiga - Menampilkan hasil fetch rss news ke halaman web sederhana
 
 disini kita menggunakan 4 RSS, yaitu :
 
@@ -146,10 +146,13 @@ Route::get('/Korea Times', [App\Http\Controllers\RssController::class, 'korea'])
 - selanjutnya kita tampilkan hasil rss kita yang sudah kita coding tampilannya dengan memanggil alamat sesuai dengan route yang sudah dibuat, hasil tampilan bisa dilihat pada gambar berikut :
 
    ![03_9_home_white_infeed](gmbr/1.png) 
+   
    ![03_9_home_white_infeed](gmbr/2.png)
+   
     ![03_9_home_white_infeed](gmbr/3.png)
+    
      ![03_9_home_white_infeed](gmbr/4.png)
 
 
-- setelah berhasil menampilkan bentuk xml dari rss kedalam html biasa, kita bisa juga menambahkan berbagai bentuk rss lain dari berbagai portal berita yang meyediakan rss mereka dan kita tampilkan di web yang kita buat dengan mudah, dengan cara ini web kita sudah dapat menampilkan berbagai macam berita dari berbagai macam portal dikumpulkan dalam satu tempat.  untuk tampilan juga bisa kita edit sesuka hati.. 
+- setelah berhasil menampilkan bentuk xml dari rss kedalam html biasa, kita bisa juga menambahkan berbagai bentuk rss lain dari berbagai portal berita yang meyediakan rss mereka dan kita tampilkan di web yang kita buat dengan mudah, dengan cara ini web kita sudah dapat menampilkan berbagai macam berita dari berbagai macam portal untuk dikumpulkan dalam satu tempat yaitu web ini. (kalau masalah tampilan juga bisa kita edit sesuka hati).. 
 ------
